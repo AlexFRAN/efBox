@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>efBox Example</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <link href="css/ef.box.css" rel="stylesheet" />
+    <style type="text/css">
+    *
+    {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    html,
+    body
+    {
+        color: #999;
+    }
+    
+    h1,
+    h2,
+    h3
+    {
+        color: #c2b59b;
+        font-weight: 300;
+    }
+    
+    pre span
+    {
+        color: #888;
+        padding-top: 5px;
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>efBox</h1>
+        <h3>Easy to use lightbox, configurable via data attributes</h3>
+        <br/>
+        <div class="alert alert-warning" role="alert">Warning: this is a pre-alpha script, as soon as we got time, we will refactor it.</div>
+        <br/>
+        <br/>
+        Example:<br/>
+        <a href="popup1.jpg" class="efBox" data-gallery="gal1">Click me, i won't bite</a>
+        <a href="popup2.jpg" class="efBox" data-gallery="gal1"></a>
+        <br/>
+        <br/>
+        <br/>
+        <b>Setup:</b><br/>
+        <br/>
+        1.) Html markup:<br/>
+        <br/>
+        <pre>&lt;a href="yourimage.jpg" class="efBox" data-gallery="gal"&gt;Link&lt;/a&gt;
+<span>The gallery attribute is optional, also, you can personalize the selector wich links will open the ef.box (default: efBox-Class)</span></pre>
+        <br/>
+        <br/>
+        2.) Include the efbox files:<br/>
+        - ef.box.css<br/>
+        - jQuery<br/>
+        - ef.box.js<br/>
+        <br/>
+        3.) Call ef.box.init:<br/>
+        <br/>
+        <pre>ef.box.init({/* options in here */});</pre><br/>
+        <br/>
+        <h4>That's it!</h4>
+        <br/>
+        <br/>
+        <br/>
+        <b>Possible options when calling ef.box.init:</b><br/>
+        <br/>
+        <pre>{
+    selector:
+    {
+        base: '.efBox',     // The basic efBox selector
+        type: true,     // Will set the type (image/inline) depending on class .image or .inline
+        gallery: 'data-gallery'  // When transitioning to html5 this will be used as gallery attribute
+    },
+    
+    errors:     // the error messages that will show up if the content cannot be loaded
+    {
+        image: 'Error while loading image.',
+        inline: 'Error while loading content.'
+    },
+    
+    resizeDynamic: true,        // resizes efBox on window resize
+    margin: [60, 70, 60, 70],   // margin: top right bottom left
+    padding: [0, 0, 0, 0],    // padding: top right bottom left
+    type: 'image',              // 'image', 'inline'
+    width: null,                // if width or height ar set, efBox will use them to create a box with absolute dimensions
+    height: null,
+    minWidth: 200,              // minimum div width
+    minHeight: 400,             // minimum div height
+    navArrows: true,            // in galleries use navigation arrows
+    speed: 200,                 // the speed wich will be used to fadein/out the box
+    resizeSpeed: 400,           // the speed with wich the box will be resized
+    closeButton: true,          // include closebutton
+    modal: false                // if set to true, click on background will not close the box
+}</pre>
+    </div>
+    <script type="text/javascript" src="vendors/jquery.min.js"></script>
+    <script type="text/javascript" src="src/ef.box.js"></script>
+    <script type="text/javascript">
+    (function($) {
+        ef.box.init();
+    }(jQuery));
+    </script>
+</body>
+</html>
